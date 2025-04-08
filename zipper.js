@@ -25,7 +25,8 @@ if(hasZip) {
 }
 
 function makeZip() {
-    const command = `powershell -Command "Compress-Archive -Path ` + files.join(',') + ' -DestinationPath ' + zipFileName + `"`;
+    // const command = `powershell -Command "Compress-Archive -Path ` + files.join(',') + ' -DestinationPath ' + zipFileName + `"`;
+    const command = `"c:\\Program Files\\7-Zip\\7z.exe" a -tzip ` + zipFileName + ' ' + files.join(' '); //using 7zip
     console.log(command)
 
     cp.exec(command, (a, b, c) => {
